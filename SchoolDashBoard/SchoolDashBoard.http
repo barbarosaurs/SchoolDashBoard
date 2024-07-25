@@ -1,0 +1,6 @@
+@SchoolDashBoard_HostAddress = http://localhost:5282
+
+GET {{SchoolDashBoard_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
