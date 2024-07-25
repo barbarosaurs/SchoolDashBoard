@@ -19,6 +19,29 @@ public class StudentController : ControllerBase
         _context = context;
     }
 
+
+    [HttpGet("")]
+    public async Task<IActionResult> GetAllStudents()
+    {
+        var students = await _context.Students
+            .Select(s => new StudentDto
+            {
+                Id = s.Id,
+                FirstName = s.FirstName,
+                LastName = s.LastName,
+                StudentCode = s.StudentCode
+            })
+            .ToListAsync();
+
+        if (!students.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(students);
+    }
+
+
     [HttpGet("{studentId}/subjects")]
     public async Task<IActionResult> GetAllSubjects(int studentId)
     {

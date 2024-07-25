@@ -18,6 +18,28 @@ public class TeacherController : ControllerBase
         _context = context;
     }
 
+    [HttpGet("")]
+    public async Task<IActionResult> GetAllStudents()
+    {
+        var students = await _context.Teachers
+            .Select(s => new TeacherDto
+            {
+                Id = s.Id,
+                FirstName = s.FirstName,
+                LastName = s.LastName,
+                TeacherCode = s.TeacherCode
+            })
+            .ToListAsync();
+
+        if (!students.Any())
+        {
+            return NotFound();
+        }
+
+        return Ok(students);
+    }
+
+
     [HttpGet("{teacherId}/students")]
     public async Task<IActionResult> GetStudentsForTeacher(int teacherId)
     {

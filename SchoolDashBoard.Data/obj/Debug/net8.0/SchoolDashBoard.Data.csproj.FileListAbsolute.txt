@@ -13,3 +13,4 @@ C:\Users\Filip Barbarić\source\repos\SchoolDashBoard.Data\obj\Debug\net8.0\refi
 C:\Users\Filip Barbarić\source\repos\SchoolDashBoard.Data\obj\Debug\net8.0\SchoolDashBoard.Data.pdb
 C:\Users\Filip Barbarić\source\repos\SchoolDashBoard.Data\obj\Debug\net8.0\SchoolDashBoard.Data.genruntimeconfig.cache
 C:\Users\Filip Barbarić\source\repos\SchoolDashBoard.Data\obj\Debug\net8.0\ref\SchoolDashBoard.Data.dll
+C:\Users\Filip Barbarić\source\repos\SchoolDashBoard.Data\obj\Debug\net8.0\SchoolDashBoard.Data.sourcelink.json
