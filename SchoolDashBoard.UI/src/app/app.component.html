@@ -1,16 +1,14 @@
 <div class="main-panel">
-  <div class="dashBoard">
-      <p-splitter [style]="{ height: '100%' }"  [panelSizes]="[10, 75]" [minSizes]="[15, 50]"  >
+      <p-splitter [style]="{ height: '100%', width:'100%'}"  [panelSizes]="[15, 75]" [minSizes]="[15, 70]"  >
         <ng-template pTemplate>
-          <p-scrollPanel [style]="{ height: '100%',  }">
+          <p-scrollPanel [style]="{ height: '100%', width:'100%'  }">
               <app-tree-view/>
             </p-scrollPanel>
         </ng-template>
         <ng-template pTemplate>
-            <div class="col flex align-items-center justify-content-center">
-               <app-person-inspector/>
-            </div>
+          <p-scrollPanel [style]="{ height: '100%', width:'100%'  }">
+            <app-person-inspector/>
+          </p-scrollPanel>
         </ng-template>
-    </p-splitter>
-    </div>
+      </p-splitter>
 </div>

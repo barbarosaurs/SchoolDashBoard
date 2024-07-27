@@ -5,39 +5,31 @@ import { AccordionModule } from 'primeng/accordion';
 import { TeacherDataService } from '../data-store-service/teacher-data.service';
 import { Teacher } from '../../models/teachers';
 import { DataService, PersonRoles } from '../data-store-service/data.service';
+import { TreeNode } from 'primeng/api';
+import { TreeModule } from 'primeng/tree';
 
 @Component({
   selector: 'app-tree-view',
   standalone: true,
-  imports: [AccordionModule],
+  imports: [AccordionModule, TreeModule],
   templateUrl: './tree-view.component.html',
   styleUrl: './tree-view.component.scss'
 })
 export default class TreeViewComponent implements OnInit{
-  students: Student[] = [];
-  teachers: Teacher[] = [];
 
   constructor(
     private studentDataService: StudentDataService, 
     private teachDataService: TeacherDataService,
-    private dataService : DataService){
+    public data : DataService){
   }
 
   ngOnInit(): void {
-    this.studentDataService.getStudents().subscribe((data: Student[]) => {
-      this.students = data;
-    }, error => {
-      console.error('Error fetching students:', error);
-    });
+    this.studentDataService.getStudents().subscribe(m => this.data.students = m);
 
-    this.teachDataService.getTeachers().subscribe((data: Teacher[]) => {
-      this.teachers = data;
-    }, error => {
-      console.error('Error fetching students:', error);
-    });
+    this.teachDataService.getTeachers().subscribe(m => this.data.teachers = m);
   }
 
   selectPerson(id: number, personRole: PersonRoles){
-    this.dataService.set(id, personRole);
+    this.data.set(id, personRole);
   }
 }

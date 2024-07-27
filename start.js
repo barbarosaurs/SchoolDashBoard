@@ -32,7 +32,6 @@ async function main() {
         const dotnetRunCommand = `cd ${schoolDashboardDir} && dotnet run`;
         const npmInstall = `cd ${schoolDashboardUIDir} &&  npm i`;
         const ngServeCommand = `cd ${schoolDashboardUIDir} && ng serve`;
-
         console.log('Running dotnet run and ng serve in parallel...');
         await runCommand(`npx concurrently "${dotnetRunCommand}" "${npmInstall}" "${ngServeCommand}"`);
         console.log('Both commands started successfully.');

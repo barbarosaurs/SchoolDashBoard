@@ -1,0 +1,18 @@
+
+@for(subject of data.subjects; track subject.id){
+    <div  (click)="selectSubject(subject.id)">
+        <p> {{ subject.name}} </p>
+    </div>
+} 
+
+
+<h1> Teacher</h1>
+@if (data.studentTeacher !== undefined && data.studentTeacher !== null){
+    <p> {{ data.studentTeacher!.firstName}} {{ data.studentTeacher!.lastName}}  </p>
+
+    <p>{{ data.average}}</p>
+    @for(grade of data.grades; track grade.id){
+        <p>{{ grade.value }} {{ grade.createdOn }}</p>
+    }
+}
+<p>student-inspector works!</p>

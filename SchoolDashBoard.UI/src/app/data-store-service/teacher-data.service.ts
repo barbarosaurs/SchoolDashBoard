@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Teacher } from '../../models/teachers';
 import { Student } from '../../models/student';
+import { Subject } from '../../models/subject';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +16,13 @@ export class TeacherDataService {
     return this.http.get<Teacher[]>(this.apiUrl);
   }
 
-
-  getStudents(teacherId: number){
-    const url = `${this.apiUrl}/${teacherId}/students`;
+  getStudents(id: number) : Observable<Student[]> {
+    const url = `${this.apiUrl}/${id}/students`;
     return this.http.get<Student[]>(url);
-  } 
+  }
+
+  getSubjects(id: number) : Observable<Subject[]> {
+    const url = `${this.apiUrl}/${id}/subjects`;
+    return this.http.get<Subject[]>(url);
+  }
 }
