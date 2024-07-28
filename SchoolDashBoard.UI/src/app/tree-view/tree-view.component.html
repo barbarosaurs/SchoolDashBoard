@@ -3,7 +3,11 @@
     <p-accordion >
         <p-accordionTab header="Students">
             @for (student of data.students; track student.id) {
-                <div class="pi pi-user cardName" style="font-size: 1.5rem" (click)="personData.changePerson(student.id, 'student')">
+                <div 
+                    class="pi pi-user cardName" 
+                    style="font-size: 1.5rem" 
+                    (click)="personData.changePerson(student.id, 'student')"
+                    [ngClass]="{'cardNameActive': personData.currentId===student.id && personData.currentPersonRole==='student' } ">
                     {{student.firstName}}
                     {{student.lastName}}
                 </div>
@@ -14,7 +18,11 @@
         </p-accordionTab>
         <p-accordionTab header="Teachers">
             @for (student of data.teachers; track student.id) {
-                <div class="pi pi-user cardName" style="font-size: 1.5rem" (click)="personData.changePerson(student.id, 'teacher')">
+                <div 
+                    class="pi pi-user cardName" 
+                    style="font-size: 1.5rem" 
+                    (click)="personData.changePerson(student.id, 'teacher')"
+                    [ngClass]="{'cardNameActive': personData.currentId===student.id && personData.currentPersonRole==='teacher' } ">
                     {{student.firstName}}
                     {{student.lastName}}
                 </div>

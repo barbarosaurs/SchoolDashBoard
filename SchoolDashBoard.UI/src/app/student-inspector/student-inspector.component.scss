@@ -1,6 +1,7 @@
 .panel{
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 .nameCard{
@@ -37,4 +38,21 @@
 .dataInput{
     display: flex;
     gap: 20px
+}
+
+.teacherName{
+    display: flex;
+}
+
+.circle {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
 }

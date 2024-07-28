@@ -20,14 +20,20 @@
 
 
 <div  class="subjectCards">
-
     @for(subject of studentData.subjects; track subject.id){
         <p-accordion (onOpen)="openSubject(subject.id)">
             <p-accordionTab header="{{ subject.name}}" >
                 @if (studentData.subjectData[ subject.id]){
                     <div class="panel">
-                        <p> {{studentData.subjectData[ subject.id].teacher.firstName}}</p>
-                        <p> {{studentData.subjectData[ subject.id].average}}</p>
+                        <div style="display: flex; gap: 20px; font-size: 1.5rem;"> 
+                            <p> Teacher </p> 
+                            <p style="font-weight: bold;">
+                                {{studentData.subjectData[ subject.id].teacher.firstName}} {{studentData.subjectData[ subject.id].teacher.lastName}}
+                            </p>
+                        </div>
+                        <div class="circle" [ngStyle]="{'background-color': getGradeColor(studentData.subjectData[ subject.id].average)}">
+                            {{studentData.subjectData[ subject.id].average | number:'0.3-3' }}
+                        </div>
                     </div>
                     <p-table 
                     [value]="studentData.subjectData[subject.id].grades"

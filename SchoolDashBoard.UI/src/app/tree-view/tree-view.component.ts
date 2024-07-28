@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { StudentDataService } from '../data-store-service/student-data.service';
 import { AccordionModule } from 'primeng/accordion';
 import { TeacherDataService } from '../data-store-service/teacher-data.service';
-import { DataService, PersonRoles } from '../data-store-service/data.service';
+import { DataService } from '../data-store-service/data.service';
 import { TreeModule } from 'primeng/tree';
 import { PersonService } from '../person-inspector/person.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tree-view',
   standalone: true,
-  imports: [AccordionModule, TreeModule],
+  imports: [AccordionModule, TreeModule, CommonModule],
   templateUrl: './tree-view.component.html',
   styleUrl: './tree-view.component.scss'
 })
