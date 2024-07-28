@@ -3,6 +3,8 @@ import { DataService } from '../data-store-service/data.service';
 import { TeacherService } from './teacher.service';
 import { AccordionModule } from 'primeng/accordion';
 import { TableModule } from 'primeng/table';
+import { Student } from '../../models/student';
+import { PersonService } from '../person-inspector/person.service';
 
 @Component({
   selector: 'app-teacher-inspector',
@@ -14,5 +16,10 @@ import { TableModule } from 'primeng/table';
 export class TeacherInspectorComponent {
   constructor(
     public teacherData: TeacherService,
-    public data: DataService){}
+    public data: DataService,
+    public personData: PersonService){}
+
+    selectStudent(event: any){    
+      this.personData.changePerson(event.data.id, 'student');
+    }
 }

@@ -19,28 +19,30 @@
 </div>
 
 
-<div  class="subjectCards">
-    <p-accordion >
-        <p-accordionTab header="Students" >
-            <p-table 
-                    [value]="teacherData.students"
-                    styleClass="p-datatable-striped"  
-                    [tableStyle]="{ 'min-width': '50rem' }">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-student>
-                        <tr>
-                            <td>{{ student.firstName }}</td>
-                            <td>{{ student.lastName }}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-        </p-accordionTab>
-    </p-accordion>
+<div class="subjectCards">
+  <p-accordion>
+    <p-accordionTab header="Students">
+      <p-table 
+        [value]="teacherData.students"
+        styleClass="p-datatable-striped"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        selectionMode="single"
+        (onRowSelect)="selectStudent($event)">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-student>
+          <tr [pSelectableRow]="student">
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-accordionTab>
+  </p-accordion>
 </div>
 
 

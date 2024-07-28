@@ -5,6 +5,7 @@ import { TableModule } from 'primeng/table';
 import { CommonModule, DatePipe } from '@angular/common';
 import { StudentService } from './student.service';
 import { CardModule } from 'primeng/card';
+import { PersonService } from '../person-inspector/person.service';
 
 @Component({
   selector: 'app-student-inspector',
@@ -17,7 +18,8 @@ export class StudentInspectorComponent {
   constructor
   (
     public data: DataService,
-    public studentData: StudentService
+    public studentData: StudentService,
+     public personData: PersonService
   ){}
 
   openSubject(subjectId: number){
@@ -33,7 +35,6 @@ export class StudentInspectorComponent {
       { stop: 5, color: { r: 0, g: 100, b: 0 } } // Dark Green
     ];
 
-    // Find two colors between which the grade lies
     let lower = colors[0];
     let upper = colors[colors.length - 1];
     for (let i = 1; i < colors.length; i++) {
@@ -50,5 +51,10 @@ export class StudentInspectorComponent {
     const b = Math.round(lower.color.b + t * (upper.color.b - lower.color.b));
 
     return `rgb(${r},${g},${b})`;
+  }
+
+
+  selectTeacher(id: number){
+    this.personData.changePerson(id, 'teacher');
   }
 }

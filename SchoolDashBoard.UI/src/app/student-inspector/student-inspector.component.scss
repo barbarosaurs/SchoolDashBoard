@@ -56,3 +56,12 @@
   text-align: center;
   line-height: 100px;
 }
+
+.teacherLink{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.teacherLink:hover{
+    color: lightblue;
+}

@@ -27,7 +27,7 @@
                     <div class="panel">
                         <div style="display: flex; gap: 20px; font-size: 1.5rem;"> 
                             <p> Teacher </p> 
-                            <p style="font-weight: bold;">
+                            <p class="teacherLink" (click)="selectTeacher(studentData.subjectData[ subject.id].teacher.id)">
                                 {{studentData.subjectData[ subject.id].teacher.firstName}} {{studentData.subjectData[ subject.id].teacher.lastName}}
                             </p>
                         </div>
