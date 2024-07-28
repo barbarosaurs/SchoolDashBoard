@@ -3,6 +3,7 @@ import { DataService } from '../data-store-service/data.service';
 import { AccordionModule } from 'primeng/accordion';
 import { TableModule } from 'primeng/table';
 import { DatePipe } from '@angular/common';
+import { StudentService } from './student.service';
 
 @Component({
   selector: 'app-student-inspector',
@@ -14,13 +15,11 @@ import { DatePipe } from '@angular/common';
 export class StudentInspectorComponent {
   constructor
   (
-    public data: DataService
+    public data: DataService,
+    public studentData: StudentService
   ){}
 
-  averageGrad = 0;
-
-  selectSubject(subjectId: number){
-    this.data.getStudentData(subjectId);
-
+  openSubject(subjectId: number){
+    this.studentData.getSubjectData(subjectId);
   }
 }

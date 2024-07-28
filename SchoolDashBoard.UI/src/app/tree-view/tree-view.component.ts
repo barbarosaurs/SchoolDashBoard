@@ -4,6 +4,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { TeacherDataService } from '../data-store-service/teacher-data.service';
 import { DataService, PersonRoles } from '../data-store-service/data.service';
 import { TreeModule } from 'primeng/tree';
+import { PersonService } from '../person-inspector/person.service';
 
 @Component({
   selector: 'app-tree-view',
@@ -17,16 +18,12 @@ export default class TreeViewComponent implements OnInit{
   constructor(
     private studentDataService: StudentDataService, 
     private teachDataService: TeacherDataService,
+    public personData: PersonService,
     public data : DataService){
   }
 
   ngOnInit(): void {
     this.studentDataService.getStudents().subscribe(m => this.data.students = m);
-
     this.teachDataService.getTeachers().subscribe(m => this.data.teachers = m);
-  }
-
-  selectPerson(id: number, personRole: PersonRoles){
-    this.data.set(id, personRole);
   }
 }

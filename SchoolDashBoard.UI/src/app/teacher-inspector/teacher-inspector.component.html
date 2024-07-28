@@ -1,9 +1,9 @@
 
-<!-- @for(subject of data.subjectsTeachers; track subject.id){
-    <p> {{ subject.name}} </p>
-}  -->
-<h1> STUDENTS </h1>
-@for(subject of data.studentsTeachers; track subject.id){
+@for(subject of teacherData.students; track subject.id){
     <p> {{ subject.firstName}}  {{ subject.lastName}}</p>
 } 
-<p>teacher-inspector works!</p>
+
+
+@for(subject of teacherData.subjects; track subject.id){
+    <p> {{ subject.name}}  </p>
+} 

@@ -1,29 +1,34 @@
-@for(subject of data.subjects; track subject.id){
-        <p-accordion (onOpen)="selectSubject(subject.id)">
+<p>
+    {{studentData.student.firstName}}
+    {{studentData.student.lastName}}
+</p>
+
+@for(subject of studentData.subjects; track subject.id){
+        <p-accordion (onOpen)="openSubject(subject.id)">
         <p-accordionTab header="{{ subject.name}}" >
-            <div class="panel">
-                <p> {{data.studentTeacher?.lastName}}</p>
-                <p> {{data.average}}</p>
-            </div>
-            @if (data.studentTeacher !== undefined && data.studentTeacher !== null){
+            @if (studentData.subjectData[ subject.id]){
+                <div class="panel">
+                    <p> {{studentData.subjectData[ subject.id].teacher.firstName}}</p>
+                    <p> {{studentData.subjectData[ subject.id].average}}</p>
+                </div>
                 <p-table 
-                [value]="data.grades"
+                [value]="studentData.subjectData[subject.id].grades"
                 styleClass="p-datatable-striped"  
                 [tableStyle]="{ 'min-width': '50rem' }">
-                    <ng-template pTemplate="header">
-                        <tr>
-                            <th>Data</th>
-                            <th>Grade</th>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-grade>
-                        <tr>
-                            <td>{{ grade.createdOn | date:'dd.MM.yyyy. ' }}</td>
-                            <td>{{ grade.value }}</td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            }
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Data</th>
+                        <th>Grade</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-grade>
+                    <tr>
+                        <td>{{ grade.createdOn | date:'dd.MM.yyyy. ' }}</td>
+                        <td>{{ grade.value }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        }
         </p-accordionTab>
     </p-accordion>
 } 

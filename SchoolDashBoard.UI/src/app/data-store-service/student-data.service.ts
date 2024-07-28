@@ -32,7 +32,7 @@ export class StudentDataService  {
     return this.http.get<Grade[]>(url);
   }
 
-    getAverageGrades(studentId : number, subjectId: number){
+  getAverageGrades(studentId : number, subjectId: number){
     const url = `${this.apiUrl}/${studentId}/subjects/${subjectId}/grades/average`;
     return this.http.get<number>(url);
   }

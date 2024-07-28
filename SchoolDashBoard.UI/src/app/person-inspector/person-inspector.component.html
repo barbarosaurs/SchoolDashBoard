@@ -1,7 +1,7 @@
-@if (data.cruetPersonRole() === 'student'){
+@if (personData.currentPersonRole === 'student'){
     <app-student-inspector/>
-} @else if (data.cruetPersonRole() === 'teacher') {
+} @else if (personData.currentPersonRole === 'teacher') {
     <app-teacher-inspector/>
 } @else {
-    <h1>domo</h1>
+    <h1> School DashBoard</h1>
 }
