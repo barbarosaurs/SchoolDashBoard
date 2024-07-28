@@ -18,3 +18,8 @@ To start the application:
     ```
 
     This script will install all the necessary Node.js packages and run both the frontend and backend servers.
+
+2. Open your web browser and navigate to:
+    ```url
+    http://localhost:4200/
+    ```
