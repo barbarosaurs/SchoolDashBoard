@@ -29,11 +29,18 @@ async function main() {
         const schoolDashboardDir = path.join(rootDir, 'SchoolDashBoard');
         const schoolDashboardUIDir = path.join(rootDir, 'SchoolDashBoard.UI');
 
+        // Install npm packages if they don't exist
+        console.log('Installing npm packages...');
+        await runCommand('npm install', schoolDashboardUIDir);
+
+        // Define the commands to run
         const dotnetRunCommand = `cd ${schoolDashboardDir} && dotnet run`;
-        const npmInstall = `cd ${schoolDashboardUIDir} &&  npm i`;
         const ngServeCommand = `cd ${schoolDashboardUIDir} && ng serve`;
+
+        // Start both commands in parallel
         console.log('Running dotnet run and ng serve in parallel...');
-        await runCommand(`npx concurrently "${dotnetRunCommand}" "${npmInstall}" "${ngServeCommand}"`);
+        await runCommand(`npx concurrently "${dotnetRunCommand}" "${ngServeCommand}"`);
+        
         console.log('Both commands started successfully.');
     } catch (error) {
         console.error('Error running commands:', error);
