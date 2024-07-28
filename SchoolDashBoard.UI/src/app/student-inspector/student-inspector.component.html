@@ -1,36 +1,55 @@
-<p>
-    {{studentData.student.firstName}}
-    {{studentData.student.lastName}}
-</p>
+<div class="nameCard">
+    <div class="imageCard">
+        <img alt="User" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg" class="imageSize"/>
+    </div>
+    <div class="studentData">
+        <div class="dataInput">
+            <p> First Name: </p>
+            <p style="font-weight: bold;"> {{studentData.student.firstName}}</p>
+        </div>
+            <div class="dataInput">
+            <p> Last Name: </p>
+            <p style="font-weight: bold;"> {{studentData.student.lastName}}</p>
+        </div>
+            <div class="dataInput">
+            <p> Student Code: </p>
+            <p style="font-weight: bold;"> {{studentData.student.studentCode}}</p>
+        </div>
+    </div>
+</div>
 
-@for(subject of studentData.subjects; track subject.id){
+
+<div  class="subjectCards">
+
+    @for(subject of studentData.subjects; track subject.id){
         <p-accordion (onOpen)="openSubject(subject.id)">
-        <p-accordionTab header="{{ subject.name}}" >
-            @if (studentData.subjectData[ subject.id]){
-                <div class="panel">
-                    <p> {{studentData.subjectData[ subject.id].teacher.firstName}}</p>
-                    <p> {{studentData.subjectData[ subject.id].average}}</p>
-                </div>
-                <p-table 
-                [value]="studentData.subjectData[subject.id].grades"
-                styleClass="p-datatable-striped"  
-                [tableStyle]="{ 'min-width': '50rem' }">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Data</th>
-                        <th>Grade</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-grade>
-                    <tr>
-                        <td>{{ grade.createdOn | date:'dd.MM.yyyy. ' }}</td>
-                        <td>{{ grade.value }}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        }
+            <p-accordionTab header="{{ subject.name}}" >
+                @if (studentData.subjectData[ subject.id]){
+                    <div class="panel">
+                        <p> {{studentData.subjectData[ subject.id].teacher.firstName}}</p>
+                        <p> {{studentData.subjectData[ subject.id].average}}</p>
+                    </div>
+                    <p-table 
+                    [value]="studentData.subjectData[subject.id].grades"
+                    styleClass="p-datatable-striped"  
+                    [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Data</th>
+                            <th>Grade</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-grade>
+                        <tr>
+                            <td>{{ grade.createdOn | date:'dd.MM.yyyy. ' }}</td>
+                            <td>{{ grade.value }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            }
         </p-accordionTab>
     </p-accordion>
 } 
+</div>
 
 

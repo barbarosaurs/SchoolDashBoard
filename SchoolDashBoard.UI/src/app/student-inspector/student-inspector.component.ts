@@ -4,11 +4,12 @@ import { AccordionModule } from 'primeng/accordion';
 import { TableModule } from 'primeng/table';
 import { DatePipe } from '@angular/common';
 import { StudentService } from './student.service';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-student-inspector',
   standalone: true,
-  imports: [AccordionModule, TableModule,DatePipe],
+  imports: [AccordionModule, TableModule, DatePipe, CardModule],
   templateUrl: './student-inspector.component.html',
   styleUrl: './student-inspector.component.scss'
 })

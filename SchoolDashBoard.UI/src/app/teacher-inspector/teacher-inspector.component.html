@@ -1,9 +1,77 @@
+<div class="nameCard">
+    <div class="imageCard">
+        <img alt="User" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg" class="imageSize"/>
+    </div>
+    <div class="studentData">
+        <div class="dataInput">
+            <p> First Name: </p>
+            <p style="font-weight: bold;"> {{teacherData.teacher.firstName}}</p>
+        </div>
+            <div class="dataInput">
+            <p> Last Name: </p>
+            <p style="font-weight: bold;"> {{teacherData.teacher.lastName}}</p>
+        </div>
+            <div class="dataInput">
+            <p> Teachers Code: </p>
+            <p style="font-weight: bold;"> {{teacherData.teacher.teacherCode}}</p>
+        </div>
+    </div>
+</div>
 
-@for(subject of teacherData.students; track subject.id){
+
+<div  class="subjectCards">
+    <p-accordion >
+        <p-accordionTab header="Students" >
+            <p-table 
+                    [value]="teacherData.students"
+                    styleClass="p-datatable-striped"  
+                    [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-student>
+                        <tr>
+                            <td>{{ student.firstName }}</td>
+                            <td>{{ student.lastName }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+        </p-accordionTab>
+    </p-accordion>
+</div>
+
+
+<div  class="subjectCards">
+    <p-accordion >
+        <p-accordionTab header="Subjects" >
+            <p-table 
+                    [value]="teacherData.subjects"
+                    styleClass="p-datatable-striped"  
+                    [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Subject Name</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-subject>
+                        <tr>
+                            <td>{{ subject.name}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+        </p-accordionTab>
+    </p-accordion>
+</div>
+
+
+<!-- @for(subject of teacherData.students; track subject.id){
     <p> {{ subject.firstName}}  {{ subject.lastName}}</p>
 } 
 
 
 @for(subject of teacherData.subjects; track subject.id){
     <p> {{ subject.name}}  </p>
-} 
+}  -->
