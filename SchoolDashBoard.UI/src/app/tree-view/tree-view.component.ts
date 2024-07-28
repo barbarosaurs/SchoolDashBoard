@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentDataService } from '../data-store-service/student-data.service';
-import { Student } from '../../models/student';
 import { AccordionModule } from 'primeng/accordion';
 import { TeacherDataService } from '../data-store-service/teacher-data.service';
-import { Teacher } from '../../models/teachers';
 import { DataService, PersonRoles } from '../data-store-service/data.service';
-import { TreeNode } from 'primeng/api';
 import { TreeModule } from 'primeng/tree';
 
 @Component({

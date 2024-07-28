@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data-store-service/data.service';
+import { AccordionModule } from 'primeng/accordion';
+import { TableModule } from 'primeng/table';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-student-inspector',
   standalone: true,
-  imports: [],
+  imports: [AccordionModule, TableModule,DatePipe],
   templateUrl: './student-inspector.component.html',
   styleUrl: './student-inspector.component.scss'
 })
